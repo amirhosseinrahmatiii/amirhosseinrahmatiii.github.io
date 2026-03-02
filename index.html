@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali ANIK</title>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#6c63ff;--accent:#ff6584;--bg:#0a0a1a;--card:#12122a;--text:#e0e0e0;--muted:#8888aa}
+        body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+        .bg-anim{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden}
+        .bg-anim span{position:absolute;display:block;background:rgba(108,99,255,.1);animation:fl 25s linear infinite;bottom:-150px;border-radius:50%}
+        .bg-anim span:nth-child(1){left:25%;width:80px;height:80px}
+        .bg-anim span:nth-child(2){left:10%;width:20px;height:20px;animation-delay:2s;animation-duration:12s}
+        .bg-anim span:nth-child(3){left:70%;width:20px;height:20px;animation-delay:4s}
+        .bg-anim span:nth-child(4){left:40%;width:60px;height:60px;animation-duration:18s}
+        .bg-anim span:nth-child(5){left:65%;width:20px;height:20px}
+        .bg-anim span:nth-child(6){left:75%;width:110px;height:110px;animation-delay:3s}
+        .bg-anim span:nth-child(7){left:35%;width:150px;height:150px;animation-delay:7s}
+        .bg-anim span:nth-child(8){left:50%;width:25px;height:25px;animation-delay:15s;animation-duration:45s}
+        @keyframes fl{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(-1000px) rotate(720deg);opacity:0}}
+        .wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:40px 20px}
+        .hero{text-align:center;padding:80px 0 60px}
+        .avatar{width:120px;height:120px;border-radius:50%;border:3px solid var(--primary);margin-bottom:24px;box-shadow:0 0 30px rgba(108,99,255,.3)}
+        h1{font-size:2.5rem;background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:12px}
+        .tagline{font-size:1.2rem;color:var(--muted);margin-bottom:24px}
+        .status{display:inline-flex;align-items:center;gap:8px;background:var(--card);padding:8px 20px;border-radius:20px;font-size:.9rem;border:1px solid rgba(108,99,255,.2)}
+        .dot{width:8px;height:8px;background:#4ade80;border-radius:50%;animation:pulse 2s infinite}
+        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+        .links{display:flex;justify-content:center;gap:16px;margin-top:24px;flex-wrap:wrap}
+        .links a{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--card);border:1px solid rgba(108,99,255,.2);border-radius:12px;color:var(--text);text-decoration:none;transition:all .3s;font-size:.9rem}
+        .links a:hover{border-color:var(--primary);transform:translateY(-2px);box-shadow:0 8px 25px rgba(108,99,255,.2)}
+        .section{margin-top:60px}
+        .section h2{font-size:1.5rem;margin-bottom:24px}
+        .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+        .card{background:var(--card);border:1px solid rgba(108,99,255,.1);border-radius:16px;padding:24px;transition:all .3s}
+        .card:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:0 12px 40px rgba(108,99,255,.15)}
+        .card h3{margin-bottom:8px;font-size:1.1rem}
+        .card p{color:var(--muted);font-size:.9rem;line-height:1.6}
+        .tags{margin-top:16px;display:flex;gap:8px;flex-wrap:wrap}
+        .tag{background:rgba(108,99,255,.15);color:var(--primary);padding:4px 12px;border-radius:8px;font-size:.8rem}
+        .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:16px}
+        .skill{background:var(--card);border:1px solid rgba(108,99,255,.1);border-radius:12px;padding:20px;text-align:center;transition:all .3s}
+        .skill:hover{border-color:var(--primary);transform:translateY(-2px)}
+        .skill .ico{font-size:2rem;margin-bottom:8px}
+        .skill .nm{font-weight:600}
+        footer{text-align:center;margin-top:80px;padding:40px 0;color:var(--muted);font-size:.85rem;border-top:1px solid rgba(108,99,255,.1)}
+        @media(max-width:600px){h1{font-size:1.8rem}.hero{padding:40px 0 30px}}
+    </style>
+</head>
+<body>
+    <div class="bg-anim"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="wrap">
+        <div class="hero">
+            <img src="https://avatars.githubusercontent.com/u/113441079?v=4" alt="Ali ANIK" class="avatar">
+            <h1>Ali ANIK</h1>
+            <p class="tagline">Tech Enthusiast &middot; Developer &middot; Builder &#x1F680;</p>
+            <div class="status"><span class="dot"></span> Yeni projeler uzerinde calisiyorum</div>
+            <div class="links">
+                <a href="https://github.com/amirhosseinrahmatiii" target="_blank">&#x1F4BB; GitHub</a>
+                <a href="mailto:alianik553@gmail.com">&#x2709;&#xFE0F; E-posta</a>
+            </div>
+        </div>
+        <div class="section">
+            <h2>&#x1F4BC; Projelerim</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>&#x1F916; AI Siparis Asistani</h3>
+                    <p>Yapay zeka destekli akilli siparis yonetim sistemi. Musteri siparislerini otomatik olarak isler ve yonetir.</p>
+                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">AI</span><span class="tag">Otomasyon</span></div>
+                </div>
+                <div class="card">
+                    <h3>&#x1F4CA; GLPI Insight Hub</h3>
+                    <p>GLPI verilerini analiz eden ve gorsellestiren dashboard. Radar grafikleri ve cyber-theme tasarim.</p>
+                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Analytics</span><span class="tag">Dashboard</span></div>
+                </div>
+                <div class="card">
+                    <h3>&#x1F4F1; Sosyal Mekanik</h3>
+                    <p>Sosyal medya yonetim platformu. Post olusturma, zamanlama ve takvim entegrasyonu.</p>
+                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Social Media</span><span class="tag">Scheduling</span></div>
+                </div>
+                <div class="card">
+                    <h3>&#x1F527; TechRepairHub</h3>
+                    <p>Teknik servis ve tamir yonetim platformu. Performans takibi ve musteri yonetimi.</p>
+                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Service</span><span class="tag">Management</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <h2>&#x26A1; Yetenekler</h2>
+            <div class="skills">
+                <div class="skill"><div class="ico">&#x1F310;</div><div class="nm">Web Gelistirme</div></div>
+                <div class="skill"><div class="ico">&#x1F916;</div><div class="nm">AI &amp; Otomasyon</div></div>
+                <div class="skill"><div class="ico">&#x1F4CA;</div><div class="nm">Veri Analizi</div></div>
+                <div class="skill"><div class="ico">&#x1F527;</div><div class="nm">Sistem Yonetimi</div></div>
+                <div class="skill"><div class="ico">&#x1F4F1;</div><div class="nm">Sosyal Medya</div></div>
+                <div class="skill"><div class="ico">&#x1F6E1;&#xFE0F;</div><div class="nm">IT Guvenlik</div></div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2026 Ali ANIK &middot; Tum haklari saklidir</p>
+            <p style="margin-top:8px">&#x1F680; Built with passion</p>
+        </footer>
+    </div>
+</body>
+</html>
