@@ -21,8 +21,13 @@
         @keyframes fl{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(-1000px) rotate(720deg);opacity:0}}
         .wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:40px 20px}
         .hero{text-align:center;padding:100px 0 80px}
-        .avatar{width:140px;height:140px;border-radius:50%;border:3px solid var(--primary);margin-bottom:32px;box-shadow:0 0 40px rgba(14,165,233,.25);transition:transform .3s}
+        .avatar-container{position:relative;display:inline-block;margin-bottom:32px}
+        .avatar{width:140px;height:140px;border-radius:50%;border:3px solid var(--primary);box-shadow:0 0 40px rgba(14,165,233,.25);transition:transform .3s;object-fit:cover}
         .avatar:hover{transform:scale(1.05)}
+        .upload-btn{position:absolute;bottom:0;right:0;width:44px;height:44px;background:var(--primary);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .3s;box-shadow:0 4px 15px rgba(14,165,233,.4)}
+        .upload-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(14,165,233,.6)}
+        #photo-input{display:none}
+        .upload-status{margin-top:12px;font-size:.9rem;color:var(--muted);min-height:20px}
         h1{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;letter-spacing:-1px}
         .tagline{font-size:1.3rem;color:var(--muted);margin-bottom:32px;font-weight:500}
         .status{display:inline-flex;align-items:center;gap:10px;background:rgba(14,165,233,.1);padding:12px 24px;border-radius:30px;font-size:1rem;border:1px solid rgba(14,165,233,.3);backdrop-filter:blur(10px)}
@@ -56,7 +61,12 @@
     <div class="bg-anim"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
     <div class="wrap">
         <div class="hero">
-            <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ali ANIK" class="avatar">
+            <div class="avatar-container">
+                <img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Ali ANIK" class="avatar" id="profile-photo">
+                <button class="upload-btn" id="upload-trigger" title="Fotoğrafı güncelle">📷</button>
+                <input type="file" id="photo-input" accept="image/*">
+            </div>
+            <div class="upload-status" id="upload-status"></div>
             <h1>Ali ANIK</h1>
             <p class="tagline">Tech Enthusiast · Developer · Builder</p>
             <div class="status"><span class="dot"></span> Yeni projeler üzerinde çalışıyorum</div>
@@ -122,5 +132,96 @@
             <p style="margin-top:8px">Tutkuyla inşa edildi</p>
         </footer>
     </div>
+    <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+        const SUPABASE_URL = 'https://0ec90b57d6e95fcbda19832f.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJib2x0IiwicmVmIjoiMGVjOTBiNTdkNmU5NWZjYmRhMTk4MzJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4ODE1NzQsImV4cCI6MTc1ODg4MTU3NH0.9I8-U0x86Ak8t2DGaIk0HfvTSLsAyzdnz-Nw00mMkKw';
+
+        let supabase;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await new Promise(resolve => {
+                const checkSB = setInterval(() => {
+                    if (window.supabase) {
+                        clearInterval(checkSB);
+                        resolve();
+                    }
+                }, 100);
+            });
+
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+            document.getElementById('upload-trigger').addEventListener('click', () => {
+                document.getElementById('photo-input').click();
+            });
+
+            document.getElementById('photo-input').addEventListener('change', handlePhotoUpload);
+
+            await loadProfilePhoto();
+        });
+
+        async function loadProfilePhoto() {
+            try {
+                const { data: { publicUrl } } = supabase.storage
+                    .from('profile')
+                    .getPublicUrl('avatar.jpg');
+
+                const img = new Image();
+                img.onload = () => {
+                    document.getElementById('profile-photo').src = publicUrl + '?t=' + Date.now();
+                };
+                img.onerror = () => {};
+                img.src = publicUrl;
+            } catch (err) {
+                console.log('İlk yükleme sırasında profil fotoğrafı bulunamadı');
+            }
+        }
+
+        async function handlePhotoUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const status = document.getElementById('upload-status');
+            status.textContent = 'Yükleniyor...';
+            status.style.color = 'var(--primary)';
+
+            try {
+                const { data: listData } = await supabase.storage.from('profile').list();
+                if (listData && listData.length > 0) {
+                    await supabase.storage.from('profile').remove(['avatar.jpg']);
+                }
+
+                const { error: uploadError } = await supabase.storage
+                    .from('profile')
+                    .upload('avatar.jpg', file, { upsert: true });
+
+                if (uploadError) throw uploadError;
+
+                await new Promise(resolve => setTimeout(resolve, 500));
+
+                const { data: { publicUrl } } = supabase.storage
+                    .from('profile')
+                    .getPublicUrl('avatar.jpg');
+
+                document.getElementById('profile-photo').src = publicUrl + '?t=' + Date.now();
+
+                status.textContent = 'Fotoğraf başarıyla güncellendi!';
+                status.style.color = 'var(--accent)';
+
+                setTimeout(() => {
+                    status.textContent = '';
+                }, 3000);
+            } catch (err) {
+                console.error('Hata:', err);
+                status.textContent = 'Fotoğraf yüklenirken hata oluştu';
+                status.style.color = '#ef4444';
+                setTimeout(() => {
+                    status.textContent = '';
+                }, 3000);
+            }
+
+            e.target.value = '';
+        }
+    </script>
 </body>
 </html>
