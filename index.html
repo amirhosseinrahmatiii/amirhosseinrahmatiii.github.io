@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ali ANIK</title>
+    <meta name="description" content="Ali ANIK · Bilişim Profesyoneli | GLPI Envanter Yönetimi · Sistem Yönetimi · Ağ Operasyonları · Otomasyon">
+    <meta name="theme-color" content="#0f172a">
+    <meta property="og:title" content="Ali ANIK · Bilişim Profesyoneli">
+    <meta property="og:description" content="GLPI, sistem yönetimi ve otomasyon üzerine uzmanlaşmış IT profesyoneli.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ali ANIK · Bilişim Profesyoneli">
+    <meta name="twitter:description" content="GLPI, sistem yönetimi ve otomasyon üzerine uzmanlaşmış IT profesyoneli.">
+    <title>Ali ANIK · Bilişim Profesyoneli</title>
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
-        :root{--primary:#0ea5e9;--secondary:#06b6d4;--accent:#10b981;--bg:#0f172a;--card:#1e293b;--text:#f1f5f9;--muted:#94a3b8}
-        body{font-family:-apple-system,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;line-height:1.6}
-        .bg-anim{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden}
-        .bg-anim span{position:absolute;display:block;background:radial-gradient(circle,rgba(14,165,233,.08),rgba(14,165,233,0));animation:fl 25s linear infinite;bottom:-150px;border-radius:50%}
+        :root{--primary:#0ea5e9;--secondary:#06b6d4;--accent:#10b981;--bg:#0f172a;--card:#1e293b;--card-light:#334155;--text:#f1f5f9;--muted:#94a3b8;--border:#1e293b}
+        html{scroll-behavior:smooth}
+        body{font-family:-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;line-height:1.6}
+        .bg-anim{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;overflow:hidden;pointer-events:none}
+        .bg-anim span{position:absolute;display:block;background:radial-gradient(circle,rgba(14,165,233,.06),rgba(14,165,233,0));animation:fl 25s linear infinite;bottom:-150px;border-radius:50%}
         .bg-anim span:nth-child(1){left:25%;width:80px;height:80px}
         .bg-anim span:nth-child(2){left:10%;width:20px;height:20px;animation-delay:2s;animation-duration:12s}
         .bg-anim span:nth-child(3){left:70%;width:20px;height:20px;animation-delay:4s}
@@ -19,42 +28,62 @@
         .bg-anim span:nth-child(7){left:35%;width:150px;height:150px;animation-delay:7s}
         .bg-anim span:nth-child(8){left:50%;width:25px;height:25px;animation-delay:15s;animation-duration:45s}
         @keyframes fl{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(-1000px) rotate(720deg);opacity:0}}
-        .wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:40px 20px}
-        .hero{text-align:center;padding:100px 0 80px}
-        .avatar-container{position:relative;display:inline-block;margin-bottom:32px}
-        .avatar{width:140px;height:140px;border-radius:50%;border:3px solid var(--primary);box-shadow:0 0 40px rgba(14,165,233,.25);transition:transform .3s;object-fit:cover}
-        .avatar:hover{transform:scale(1.05)}
-        .upload-btn{position:absolute;bottom:0;right:0;width:44px;height:44px;background:var(--primary);border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.5rem;transition:all .3s;box-shadow:0 4px 15px rgba(14,165,233,.4)}
-        .upload-btn:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(14,165,233,.6)}
-        #photo-input{display:none}
-        .upload-status{margin-top:12px;font-size:.9rem;color:var(--muted);min-height:20px}
-        h1{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;letter-spacing:-1px}
-        .tagline{font-size:1.3rem;color:var(--muted);margin-bottom:32px;font-weight:500}
-        .status{display:inline-flex;align-items:center;gap:10px;background:rgba(14,165,233,.1);padding:12px 24px;border-radius:30px;font-size:1rem;border:1px solid rgba(14,165,233,.3);backdrop-filter:blur(10px)}
-        .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:pulse 2s infinite}
-        @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
-        .links{display:flex;justify-content:center;gap:16px;margin-top:32px;flex-wrap:wrap}
-        .links a{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:rgba(14,165,233,.1);border:1.5px solid var(--primary);border-radius:12px;color:var(--text);text-decoration:none;transition:all .3s;font-size:1rem;font-weight:600;backdrop-filter:blur(10px)}
-        .links a:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-3px);box-shadow:0 12px 35px rgba(14,165,233,.3)}
+        .wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:0 20px}
+        .hero{text-align:center;padding:120px 0 60px}
+        .avatar-container{display:inline-block;margin-bottom:40px}
+        .avatar{width:160px;height:160px;border-radius:50%;border:2px solid var(--primary);box-shadow:0 0 40px rgba(14,165,233,.25);transition:transform .3s;object-fit:cover}
+        .avatar:hover{transform:scale(1.03)}
+        h1{font-size:3.5rem;font-weight:800;background:linear-gradient(135deg,var(--primary),var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;letter-spacing:-1.5px}
+        .tagline{font-size:1.25rem;color:var(--muted);margin-bottom:20px;font-weight:400;max-width:700px;margin-left:auto;margin-right:auto;line-height:1.8}
+        .tagline strong{color:var(--text);font-weight:600}
+        .intro-section{margin-top:60px;padding:40px;background:rgba(30,41,59,.4);border:1px solid rgba(14,165,233,.15);border-radius:16px;backdrop-filter:blur(10px)}
+        .intro-section p{font-size:1.05rem;color:var(--text);line-height:1.8;margin-bottom:16px}
+        .intro-section p:last-child{margin-bottom:0}
         .section{margin-top:80px}
-        .section h2{font-size:2.2rem;margin-bottom:40px;font-weight:700}
+        .section-title{font-size:2.2rem;font-weight:700;margin-bottom:40px;position:relative;padding-bottom:16px}
+        .section-title::after{content:'';position:absolute;bottom:0;left:0;width:60px;height:3px;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:2px}
         .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px}
-        .card{background:linear-gradient(135deg,rgba(30,41,59,.8),rgba(30,41,59,.5));border:1px solid rgba(14,165,233,.2);border-radius:16px;padding:28px;transition:all .35s;backdrop-filter:blur(10px);position:relative;overflow:hidden}
-        .card::before{content:'';position:absolute;top:0;right:0;width:100px;height:100px;background:linear-gradient(135deg,rgba(14,165,233,.1),transparent);border-radius:50%;pointer-events:none}
-        .card:hover{border-color:var(--primary);transform:translateY(-8px);box-shadow:0 20px 50px rgba(14,165,233,.2)}
-        .card h3{margin-bottom:12px;font-size:1.3rem;font-weight:700}
+        .card{background:linear-gradient(135deg,rgba(30,41,59,.6),rgba(30,41,59,.3));border:1px solid rgba(14,165,233,.15);border-radius:14px;padding:32px;transition:all .35s;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+        .card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:linear-gradient(135deg,rgba(14,165,233,.08),transparent);border-radius:50%;pointer-events:none}
+        .card:hover{border-color:rgba(14,165,233,.4);transform:translateY(-6px);box-shadow:0 16px 40px rgba(14,165,233,.15)}
+        .card h3{margin-bottom:12px;font-size:1.35rem;font-weight:700;color:var(--text)}
         .card p{color:var(--muted);font-size:1rem;line-height:1.7}
-        .card-link{display:inline-block;margin-top:16px;color:var(--primary);text-decoration:none;font-weight:600;transition:all .3s;font-size:.95rem}
-        .card-link:hover{gap:8px;transform:translateX(4px)}
-        .tags{margin-top:20px;display:flex;gap:8px;flex-wrap:wrap}
-        .tag{background:rgba(14,165,233,.15);color:var(--primary);padding:6px 14px;border-radius:8px;font-size:.85rem;font-weight:500}
-        .skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:20px}
-        .skill{background:rgba(30,41,59,.6);border:1px solid rgba(14,165,233,.15);border-radius:14px;padding:24px;text-align:center;transition:all .3s;backdrop-filter:blur(10px)}
-        .skill:hover{border-color:var(--primary);transform:translateY(-4px);box-shadow:0 12px 30px rgba(14,165,233,.15)}
-        .skill .ico{font-size:2.5rem;margin-bottom:12px}
-        .skill .nm{font-weight:700;font-size:1.05rem}
-        footer{text-align:center;margin-top:100px;padding:40px 0;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(14,165,233,.1)}
-        @media(max-width:768px){h1{font-size:2.5rem}.section h2{font-size:1.8rem}.hero{padding:60px 0 50px}.grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}}
+        .card-link{display:inline-block;margin-top:18px;color:var(--primary);text-decoration:none;font-weight:600;transition:all .3s;font-size:.95rem}
+        .card-link:hover{transform:translateX(6px)}
+        .tags{margin-top:18px;display:flex;gap:8px;flex-wrap:wrap}
+        .tag{background:rgba(14,165,233,.12);color:var(--primary);padding:6px 12px;border-radius:6px;font-size:.85rem;font-weight:500}
+        .skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:18px}
+        .skill-box{background:rgba(30,41,59,.5);border:1px solid rgba(14,165,233,.12);border-radius:12px;padding:24px;text-align:center;transition:all .3s;backdrop-filter:blur(10px)}
+        .skill-box:hover{border-color:rgba(14,165,233,.4);transform:translateY(-3px);box-shadow:0 10px 25px rgba(14,165,233,.1)}
+        .skill-icon{font-size:2.5rem;margin-bottom:12px}
+        .skill-name{font-weight:700;font-size:1rem;color:var(--text)}
+        .skills-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+        .skill-item{padding:16px;background:rgba(30,41,59,.4);border:1px solid rgba(14,165,233,.12);border-radius:10px;font-size:0.95rem;color:var(--muted)}
+        .skill-item::before{content:'▪ ';color:var(--primary);font-weight:bold;margin-right:8px}
+        footer{text-align:center;margin-top:100px;padding:40px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(14,165,233,.1)}
+        footer p{margin:8px 0}
+        .links{display:flex;justify-content:center;gap:12px;margin-top:40px;flex-wrap:wrap}
+        .link-btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;background:rgba(14,165,233,.12);border:1.5px solid var(--primary);border-radius:10px;color:var(--text);text-decoration:none;transition:all .3s;font-weight:600;font-size:0.95rem}
+        .link-btn:hover{background:var(--primary);border-color:var(--primary);transform:translateY(-2px);box-shadow:0 12px 30px rgba(14,165,233,.25)}
+        @media(max-width:768px){
+            h1{font-size:2.5rem}
+            .section-title{font-size:1.8rem}
+            .tagline{font-size:1.1rem}
+            .hero{padding:80px 0 40px}
+            .avatar{width:140px;height:140px}
+            .grid{grid-template-columns:1fr}
+            .skills-grid{grid-template-columns:repeat(2,1fr)}
+            .intro-section{padding:24px}
+            .card{padding:24px}
+        }
+        @media(max-width:480px){
+            h1{font-size:1.8rem}
+            .section-title{font-size:1.4rem}
+            .tagline{font-size:1rem}
+            .skills-grid{grid-template-columns:1fr}
+            .links{gap:8px}
+            .link-btn{padding:10px 16px;font-size:0.85rem}
+        }
     </style>
 </head>
 <body>
@@ -62,166 +91,101 @@
     <div class="wrap">
         <div class="hero">
             <div class="avatar-container">
-                <img src="./public/ali.jpeg" alt="Ali ANIK" class="avatar" id="profile-photo">
-                <button class="upload-btn" id="upload-trigger" title="Fotoğrafı güncelle">📷</button>
-                <input type="file" id="photo-input" accept="image/*">
+                <img src="./public/ali.jpeg" alt="Ali ANIK" class="avatar">
             </div>
-            <div class="upload-status" id="upload-status"></div>
             <h1>Ali ANIK</h1>
-            <p class="tagline">Tech Enthusiast · Developer · Builder</p>
-            <div class="status"><span class="dot"></span> Yeni projeler üzerinde çalışıyorum</div>
+            <p class="tagline">Bilişim Profesyoneli · <strong>GLPI Envanter Yönetimi</strong> · Sistem Yönetimi · Ağ Operasyonları · Otomasyon</p>
             <div class="links">
-                <a href="https://github.com/amirhosseinrahmatiii" target="_blank">💻 GitHub</a>
-                <a href="https://www.linkedin.com/in/ali-anik-b25a23178/" target="_blank">💼 LinkedIn</a>
-                <a href="mailto:alianik553@gmail.com">✉️ E-posta</a>
+                <a href="https://github.com/amirhosseinrahmatiii" target="_blank" rel="noopener noreferrer" class="link-btn">GitHub</a>
+                <a href="https://www.linkedin.com/in/ali-anik-b25a23178/" target="_blank" rel="noopener noreferrer" class="link-btn">LinkedIn</a>
+                <a href="mailto:alianik553@gmail.com" class="link-btn">E-posta</a>
             </div>
         </div>
+
+        <div class="intro-section">
+            <p>Kurumsal IT ekosistemini <strong>görünür</strong>, <strong>yönetilebilir</strong> ve <strong>otomatik</strong> hale getirmek üzerine çalışıyorum. Manuel işleri azaltan, operasyonu toparlayan, altyapıyı kontrol altına alan çözümleri tasarlarım ve gerçekleştiririm.</p>
+            <p>GLPI ortamlarında veri uyumluluğu, asset tracking ve envanter yönetimi; Windows ve Linux sistemleri üzerinde otomasyon; ağ operasyonları ve sistem entegrasyonları konularında deneyimim var. Kompleks IT problemlerini basit, ölçeklenebilir araçlarla çözmek benim yaklaşımım.</p>
+        </div>
+
         <div class="section">
-            <h2>Projelerim</h2>
+            <h2 class="section-title">Odak Alanları</h2>
+            <div class="skills-grid">
+                <div class="skill-box">
+                    <div class="skill-icon">📦</div>
+                    <div class="skill-name">GLPI Envanter</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-icon">🖥️</div>
+                    <div class="skill-name">Sistem Yönetimi</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-icon">🌐</div>
+                    <div class="skill-name">Ağ Operasyonları</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-icon">⚙️</div>
+                    <div class="skill-name">Otomasyon & Scripting</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-icon">📊</div>
+                    <div class="skill-name">Veri Yönetimi</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-icon">🔧</div>
+                    <div class="skill-name">İç Araçlar</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Çalışma Prensibi</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Görünürlük</h3>
+                    <p>IT altyapısının tam harita çıkarmak. Her kaynağın, cihazın, yazılımın nerede olduğunu bilmek. Bilinmeyenler kalmadığında yönetim mümkün olur.</p>
+                </div>
+                <div class="card">
+                    <h3>Sadeleştirme</h3>
+                    <p>Gereksiz karmaşıklığı temizlemek. Prosesler, veri modelleri ve mimari kararlar sade, anlaşılır ve idame edilebilir olmalı.</p>
+                </div>
+                <div class="card">
+                    <h3>Otomasyon</h3>
+                    <p>Tekrarlanan manuel işleri ortadan kaldırmak. Veri senkronizasyonu, raporlama, envanter güncelleme — hepsi otomatik koşulmalı.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Teknik Yetenek Alanları</h2>
+            <div class="skills-list">
+                <div class="skill-item">GLPI Konfigürasyon ve Yönetimi</div>
+                <div class="skill-item">Asset Management & Envanter Tracking</div>
+                <div class="skill-item">Windows Server & Active Directory</div>
+                <div class="skill-item">Ubuntu / Linux Yönetimi</div>
+                <div class="skill-item">Hyper-V Sanallaştırma</div>
+                <div class="skill-item">PowerShell & Bash Scripting</div>
+                <div class="skill-item">TypeScript / JavaScript Geliştirme</div>
+                <div class="skill-item">Sistem Entegrasyonları & API'ler</div>
+                <div class="skill-item">Veri Senkronizasyonu</div>
+                <div class="skill-item">Ağ Yönetimi & Monitoring</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Öne Çıkan Çalışma</h2>
             <div class="grid">
                 <div class="card">
                     <h3>AI Sipariş Asistanı</h3>
-                    <p>Yapay zeka destekli akıllı sipariş yönetim sistemi. Müşteri siparislerini otomatik olarak işler ve yönetir.</p>
+                    <p>Yapay zeka destekli sipariş yönetim sistemi. Müşteri işlemlerini otomatik olarak işler, veri doğruluğunu sağlar ve operasyonel verimliliği artırır.</p>
                     <div class="tags"><span class="tag">TypeScript</span><span class="tag">AI</span><span class="tag">Otomasyon</span></div>
-                    <a href="https://github.com/amirhosseinrahmatiii/ai-siparis-asistani" target="_blank" class="card-link">Projeyi Görüntüle →</a>
-                </div>
-                <div class="card">
-                    <h3>GLPI Insight Hub</h3>
-                    <p>GLPI verilerini analiz eden ve görselleştiren dashboard. Radar grafikleri ve cyber-theme tasarım.</p>
-                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Analytics</span><span class="tag">Dashboard</span></div>
-                    <a href="https://github.com/amirhosseinrahmatiii" target="_blank" class="card-link">Projeyi Görüntüle →</a>
-                </div>
-                <div class="card">
-                    <h3>Sosyal Mekanik</h3>
-                    <p>Sosyal medya yönetim platformu. Post oluşturma, zamanlama ve takvim entegrasyonu.</p>
-                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Social Media</span><span class="tag">Scheduling</span></div>
-                    <a href="https://github.com/amirhosseinrahmatiii" target="_blank" class="card-link">Projeyi Görüntüle →</a>
-                </div>
-                <div class="card">
-                    <h3>TechRepairHub</h3>
-                    <p>Teknik servis ve tamir yönetim platformu. Performans takibi ve müşteri yönetimi.</p>
-                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">Service</span><span class="tag">Management</span></div>
-                    <a href="https://github.com/amirhosseinrahmatiii" target="_blank" class="card-link">Projeyi Görüntüle →</a>
+                    <a href="https://github.com/amirhosseinrahmatiii/ai-siparis-asistani" target="_blank" rel="noopener noreferrer" class="card-link">Projeyi Görüntüle →</a>
                 </div>
             </div>
         </div>
-        <div class="section">
-            <h2>Deneyim & Eğitim</h2>
-            <div class="grid" style="grid-template-columns: 1fr;">
-                <div class="card">
-                    <h3>Yazılım Geliştirici</h3>
-                    <p style="color: var(--accent); font-weight: 600; margin-bottom: 8px;">Güncel | Türkiye</p>
-                    <p>TypeScript, Python, React ve yapay zeka teknolojileri kullanarak kurumsal çözümler geliştiriyor ve yeni projelerde yer alıyorum.</p>
-                    <div class="tags"><span class="tag">TypeScript</span><span class="tag">React</span><span class="tag">Python</span><span class="tag">AI</span></div>
-                </div>
-            </div>
-        </div>
-        <div class="section">
-            <h2>Yetenekler</h2>
-            <div class="skills">
-                <div class="skill"><div class="ico">🌐</div><div class="nm">Web Geliştirme</div></div>
-                <div class="skill"><div class="ico">🤖</div><div class="nm">AI & Otomasyon</div></div>
-                <div class="skill"><div class="ico">📊</div><div class="nm">Veri Analizi</div></div>
-                <div class="skill"><div class="ico">🔧</div><div class="nm">Sistem Yönetimi</div></div>
-                <div class="skill"><div class="ico">📱</div><div class="nm">Sosyal Medya</div></div>
-                <div class="skill"><div class="ico">🛡️</div><div class="nm">IT Güvenliği</div></div>
-            </div>
-        </div>
+
         <footer>
             <p>© 2026 Ali ANIK · Tüm hakları saklıdır</p>
-            <p style="margin-top:8px">Tutkuyla inşa edildi</p>
         </footer>
     </div>
-    <script async src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script>
-        const SUPABASE_URL = 'https://0ec90b57d6e95fcbda19832f.supabase.co';
-        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJib2x0IiwicmVmIjoiMGVjOTBiNTdkNmU5NWZjYmRhMTk4MzJmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTg4ODE1NzQsImV4cCI6MTc1ODg4MTU3NH0.9I8-U0x86Ak8t2DGaIk0HfvTSLsAyzdnz-Nw00mMkKw';
-
-        let supabase;
-
-        document.addEventListener('DOMContentLoaded', async () => {
-            await new Promise(resolve => {
-                const checkSB = setInterval(() => {
-                    if (window.supabase) {
-                        clearInterval(checkSB);
-                        resolve();
-                    }
-                }, 100);
-            });
-
-            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
-            document.getElementById('upload-trigger').addEventListener('click', () => {
-                document.getElementById('photo-input').click();
-            });
-
-            document.getElementById('photo-input').addEventListener('change', handlePhotoUpload);
-
-            await loadProfilePhoto();
-        });
-
-        async function loadProfilePhoto() {
-            try {
-                const { data: { publicUrl } } = supabase.storage
-                    .from('profile')
-                    .getPublicUrl('avatar.jpg');
-
-                const img = new Image();
-                img.onload = () => {
-                    document.getElementById('profile-photo').src = publicUrl + '?t=' + Date.now();
-                };
-                img.onerror = () => {};
-                img.src = publicUrl;
-            } catch (err) {
-                console.log('İlk yükleme sırasında profil fotoğrafı bulunamadı');
-            }
-        }
-
-        async function handlePhotoUpload(e) {
-            const file = e.target.files[0];
-            if (!file) return;
-
-            const status = document.getElementById('upload-status');
-            status.textContent = 'Yükleniyor...';
-            status.style.color = 'var(--primary)';
-
-            try {
-                const { data: listData } = await supabase.storage.from('profile').list();
-                if (listData && listData.length > 0) {
-                    await supabase.storage.from('profile').remove(['avatar.jpg']);
-                }
-
-                const { error: uploadError } = await supabase.storage
-                    .from('profile')
-                    .upload('avatar.jpg', file, { upsert: true });
-
-                if (uploadError) throw uploadError;
-
-                await new Promise(resolve => setTimeout(resolve, 500));
-
-                const { data: { publicUrl } } = supabase.storage
-                    .from('profile')
-                    .getPublicUrl('avatar.jpg');
-
-                document.getElementById('profile-photo').src = publicUrl + '?t=' + Date.now();
-
-                status.textContent = 'Fotoğraf başarıyla güncellendi!';
-                status.style.color = 'var(--accent)';
-
-                setTimeout(() => {
-                    status.textContent = '';
-                }, 3000);
-            } catch (err) {
-                console.error('Hata:', err);
-                status.textContent = 'Fotoğraf yüklenirken hata oluştu';
-                status.style.color = '#ef4444';
-                setTimeout(() => {
-                    status.textContent = '';
-                }, 3000);
-            }
-
-            e.target.value = '';
-        }
-    </script>
 </body>
 </html>
