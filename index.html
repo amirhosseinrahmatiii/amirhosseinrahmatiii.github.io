@@ -169,6 +169,7 @@
         /* ── Footer ── */
         footer{text-align:center;margin-top:100px;padding:40px 20px;color:var(--muted);font-size:.9rem;border-top:1px solid rgba(14,165,233,.1)}
         footer p{margin:8px 0}
+        .footer-link{color:var(--primary);text-decoration:none}
 
         /* ── Links ── */
         .links{display:flex;justify-content:center;gap:12px;margin-top:40px;flex-wrap:wrap}
@@ -430,7 +431,7 @@
         <footer>
             <p>© 2026 Ali ANIK · Tüm hakları saklıdır</p>
             <p>
-                <a href="mailto:alianik553@gmail.com" style="color:var(--primary);text-decoration:none">alianik553@gmail.com</a>
+                <a href="mailto:alianik553@gmail.com" class="footer-link">alianik553@gmail.com</a>
             </p>
         </footer>
     </div>
@@ -523,7 +524,7 @@
             var mailSubject = encodeURIComponent('[alianik.me] ' + subject);
             window.location.href = 'mailto:alianik553@gmail.com?subject=' + mailSubject + '&body=' + mailBody;
 
-            feedback.textContent = 'Mail istemciniz açıldı. Mesajınızı göndermek için lütfen gönderin.';
+            feedback.textContent = 'Mail istemciniz açıldı. Mesajınızı göndermek için lütfen gönder butonuna basın.';
             feedback.className = 'form-feedback success';
             btn.disabled = false;
             document.getElementById('submitText').textContent = 'Gönder';
